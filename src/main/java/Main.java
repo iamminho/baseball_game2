@@ -1,5 +1,9 @@
+import view.Input;
+
 public class Main {
 	public static void main(String[] args) {
-		System.out.println("Hello world!");
+		Input input = new Input();
+
+		System.out.println(input.inputNum());
 	}
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="view.InputTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-10-14T08:30:15" hostname="iminhoui-MacBookAir.local" time="0.031">
+  <properties/>
+  <testcase name="inputNum()" classname="view.InputTest" time="0.028"/>
+  <testcase name="checkLen()" classname="view.InputTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
