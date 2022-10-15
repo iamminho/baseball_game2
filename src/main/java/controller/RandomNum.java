@@ -18,7 +18,7 @@ public class RandomNum {
 		while (cnt < length) {
 			int number = (int)(Math.random() * end) + 1;
 
-			if (!numList.contains(number)) {
+			if (!numList.contains(Integer.toString(number))) {
 				numList.add(Integer.toString(number));
 				cnt++;
 			}

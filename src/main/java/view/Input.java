@@ -24,7 +24,6 @@ public class Input {
 	public static String inputNumber() {
 		System.out.print("숫자를 입력해주세요 : ");
 		String number = sc.nextLine();
-		System.out.println("");
 
 		return number;
 	}

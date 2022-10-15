@@ -4,13 +4,18 @@ import java.util.ArrayList;
 
 import model.Player;
 import view.Input;
+import view.Output;
 
 public class Game {
 	static Input input = new Input();
+	static Output output = new Output();
 
 	public void playGame() {
 		RandomNum random = new RandomNum();
-
+		ArrayList<String> a = random.getRandomNum();
+		for (int i = 0; i < a.size(); i++) {
+			System.out.println(a.get(i));
+		}
 		oneGame(random);
 	}
 
@@ -20,6 +25,7 @@ public class Game {
 		if (input.inputNum()) {
 			player.setNumber(input.num);
 			gameResult(player, random);
+			output.printResult(player);
 
 			if (player.getStrike() != 3) {
 				oneGame(random);
