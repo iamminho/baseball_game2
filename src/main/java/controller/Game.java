@@ -44,6 +44,7 @@ public class Game {
 			if (player.getStrike() != 3) {
 				oneGame(random);
 			}
+			return true;
 		}
 		return false;
 	}
