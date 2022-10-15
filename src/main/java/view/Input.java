@@ -6,9 +6,8 @@ import java.util.regex.Pattern;
 public class Input {
 	static Scanner sc = new Scanner(System.in);
 
-	public static void inputNum() {
+	public void inputNum() {
 		String number = inputNumber();
-		String[] numArr = number.split("");
 
 		try {
 			checkNumber(number);
