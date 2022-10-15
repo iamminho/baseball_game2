@@ -17,18 +17,18 @@ public class Input {
 		}
 	}
 
-	public static void checkNumber(String number) throws IllegalAccessException {
-		if (!checkLen(number) || !isNumber(number)) {
-			throw new IllegalAccessException();
-		}
-	}
-
 	public static String inputNumber() {
 		System.out.print("숫자를 입력해주세요 : ");
 		String number = sc.nextLine();
 		System.out.println("");
 
 		return number;
+	}
+
+	public static void checkNumber(String number) throws IllegalAccessException {
+		if (!checkLen(number) || !isNumber(number)) {
+			throw new IllegalAccessException();
+		}
 	}
 
 	public static boolean checkLen(String number) {
