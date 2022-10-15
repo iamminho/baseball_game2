@@ -1,7 +1,9 @@
 package view;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 public class Input {
 	static Scanner sc = new Scanner(System.in);
@@ -29,7 +31,7 @@ public class Input {
 	}
 
 	public void checkNumber(String number) throws IllegalAccessException {
-		if (!checkLen(number) || !isNumber(number)) {
+		if (!checkLen(number) || !isNumber(number) || !isOverlap(number)) {
 			throw new IllegalAccessException();
 		}
 	}
@@ -46,6 +48,15 @@ public class Input {
 		boolean result = Pattern.matches(regex, number);
 
 		return result;
+	}
+
+	public boolean isOverlap(String number) {
+		Stream<String> stream = Arrays.stream(number.split(""));
+		int cnt = (int)stream.distinct().count();
+
+		if (cnt == number.length())
+			return true;
+		return false;
 	}
 }
 
