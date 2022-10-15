@@ -6,7 +6,7 @@ public class RandomNum {
 	private int length = 3;
 
 	private int end = 9;
-	private ArrayList<Integer> numList = new ArrayList<>();
+	private ArrayList<String> numList = new ArrayList<>();
 
 	public RandomNum() {
 		setRandomNum();
@@ -19,13 +19,13 @@ public class RandomNum {
 			int number = (int)(Math.random() * end) + 1;
 
 			if (!numList.contains(number)) {
-				numList.add(number);
+				numList.add(Integer.toString(number));
 				cnt++;
 			}
 		}
 	}
 
-	public ArrayList<Integer> getRandomNum() {
+	public ArrayList<String> getRandomNum() {
 		return this.numList;
 	}
 }

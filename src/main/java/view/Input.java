@@ -5,15 +5,19 @@ import java.util.regex.Pattern;
 
 public class Input {
 	static Scanner sc = new Scanner(System.in);
+	public String num;
 
-	public void inputNum() {
+	public boolean inputNum() {
 		String number = inputNumber();
 
 		try {
 			checkNumber(number);
+			num = number;
+			return true;
 		} catch (IllegalAccessException e) {
 			System.out.println("[Error] 올바르지 않는 형식입니다.");
 			System.out.println(e);
+			return false;
 		}
 	}
 

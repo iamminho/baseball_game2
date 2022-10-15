@@ -1,11 +1,11 @@
 package model;
 
 public class Player {
-	private int number;
+	private String number;
 	private int strike = 0;
 	private int ball = 0;
 
-	public int getNumber() {
+	public String getNumber() {
 		return this.number;
 	}
 
@@ -18,7 +18,7 @@ public class Player {
 	}
 
 	public void setNumber(String input) {
-		this.number = Integer.parseInt(input);
+		this.number = input;
 	}
 
 	public void setStrike(int strikeNun) {
