@@ -21,14 +21,14 @@ public class Input {
 		}
 	}
 
-	public static String inputNumber() {
+	public String inputNumber() {
 		System.out.print("숫자를 입력해주세요 : ");
 		String number = sc.nextLine();
 
 		return number;
 	}
 
-	public static void checkNumber(String number) throws IllegalAccessException {
+	public void checkNumber(String number) throws IllegalAccessException {
 		if (!checkLen(number) || !isNumber(number)) {
 			throw new IllegalAccessException();
 		}
@@ -48,3 +48,5 @@ public class Input {
 		return result;
 	}
 }
+
+

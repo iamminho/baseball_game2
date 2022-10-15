@@ -5,21 +5,35 @@ import java.util.ArrayList;
 import model.Player;
 import view.Input;
 import view.Output;
+import view.ReGame;
 
 public class Game {
 	static Input input = new Input();
 	static Output output = new Output();
+	static ReGame regame = new ReGame();
 
 	public void playGame() {
 		RandomNum random = new RandomNum();
-		ArrayList<String> a = random.getRandomNum();
-		for (int i = 0; i < a.size(); i++) {
-			System.out.println(a.get(i));
+		printArr(random);
+
+		if (!oneGame(random)) {
+			return;
 		}
-		oneGame(random);
+
+		if (regame.inputNum() && regame.num.equals("1")) {
+			playGame();
+		}
 	}
 
-	static void oneGame(RandomNum random) {
+	public void printArr(RandomNum random) {
+		ArrayList<String> a = random.getRandomNum();
+		for (int i = 0; i < a.size(); i++) {
+			System.out.print(a.get(i));
+		}
+		System.out.println("");
+	}
+
+	boolean oneGame(RandomNum random) {
 		Player player = new Player();
 
 		if (input.inputNum()) {
@@ -31,9 +45,10 @@ public class Game {
 				oneGame(random);
 			}
 		}
+		return false;
 	}
 
-	static void gameResult(Player player, RandomNum random) {
+	void gameResult(Player player, RandomNum random) {
 		String[] playerNumArr = player.getNumber().split("");
 		ArrayList<String> randomNumArr = random.getRandomNum();
 
@@ -42,7 +57,7 @@ public class Game {
 		}
 	}
 
-	static void setStrikeOrBall(Player player, int index, String[] playerNumArr, ArrayList<String> randomNumArr) {
+	void setStrikeOrBall(Player player, int index, String[] playerNumArr, ArrayList<String> randomNumArr) {
 		if (playerNumArr[index].equals(randomNumArr.get(index))) {
 			player.setStrike(player.getStrike() + 1);
 		} else if (randomNumArr.contains(playerNumArr[index])) {
