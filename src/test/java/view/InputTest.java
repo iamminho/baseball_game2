@@ -1,5 +1,7 @@
 package view;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 
 class InputTest {
@@ -10,13 +12,11 @@ class InputTest {
 
 	@Test
 	void checkLen() {
+		assertTrue(Input.checkLen("5443"));
 	}
 
 	@Test
-	static boolean isNumber(String a) {
-		InputTest inputTest = new InputTest();
-		String str = "3456";
-		return inputTest.isNumber(str);
+	void isNumber() {
+		assertFalse(Input.isNumber("abc"));
 	}
-
 }
