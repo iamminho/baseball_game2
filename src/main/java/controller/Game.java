@@ -11,17 +11,20 @@ public class Game {
 	static Input input = new Input();
 	static Output output = new Output();
 	static ReGame regame = new ReGame();
+	static boolean oneGameFlag = true;
+	static boolean regameFlag = true;
 
 	public void playGame() {
-		RandomNum random = new RandomNum();
-		printArr(random);
+		while (regameFlag) {
+			RandomNum random = new RandomNum();
+			printArr(random);
 
-		if (!oneGame(random)) {
-			return;
-		}
+			oneGame(random);
+			if (!oneGameFlag) {
+				break;
+			}
 
-		if (regame.inputNum() && regame.num.equals("1")) {
-			playGame();
+			isRegame(regame);
 		}
 	}
 
@@ -33,20 +36,26 @@ public class Game {
 		System.out.println("");
 	}
 
-	boolean oneGame(RandomNum random) {
+	void oneGame(RandomNum random) {
 		Player player = new Player();
 
-		if (input.inputNum()) {
-			player.setNumber(input.num);
-			gameResult(player, random);
-			output.printResult(player);
-
-			if (player.getStrike() != 3) {
-				oneGame(random);
-			}
-			return true;
+		if (!input.inputNum()) {
+			oneGameFlag = false;
+			return;
 		}
-		return false;
+		player.setNumber(input.num);
+		gameResult(player, random);
+		output.printResult(player);
+
+		if (player.getStrike() != 3) {
+			oneGame(random);
+		}
+	}
+
+	void isRegame(ReGame regame) {
+		if (!regame.inputNum() || regame.num.equals("2")) {
+			regameFlag = false;
+		}
 	}
 
 	void gameResult(Player player, RandomNum random) {
